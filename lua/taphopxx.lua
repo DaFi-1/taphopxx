@@ -319,7 +319,7 @@ end
 
 -- setup permite ativar via keymap apenas quando o usuário quiser
 function window_hop.setup()
-  vim.keymap.set("n", "<Space>+", window_hop.activate, {
+  vim.keymap.set("n", "<Space>e", window_hop.activate, {
     silent = true,
     desc = "WinHop: pular para aba",
   })

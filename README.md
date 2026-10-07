@@ -3,7 +3,7 @@
 Pula para qualquer aba do Neovim com uma tecla: mostra uma linha com letras
 (`a`–`z`) em ASCII art e o nome de cada aba, você digita a letra e vai.
 
-Atalho: **`<Space>+`** (espaço e mais).
+Atalho: **`<Space>e`** (espaço e "e").
 
 ## Instalação
 
@@ -40,14 +40,14 @@ Ou, no `require("lazy").setup({...})` do `init.lua`:
 { "DaFi-1/taphopxx" },
 ```
 
-O atalho `<Space>+` é registrado sozinho quando o plugin carrega (no início do
+O atalho `<Space>e` é registrado sozinho quando o plugin carrega (no início do
 Neovim).
 
 ## Uso
 
 | Tecla              | Ação                                |
 | ------------------ | ----------------------------------- |
-| `<Space>+`         | Abre a linha de letras e espera     |
+| `<Space>e`         | Abre a linha de letras e espera     |
 | letra (`a`, `b`, …) | Vai para a aba correspondente      |
 | `<Esc>` / `<C-c>`  | Cancela                             |
 
