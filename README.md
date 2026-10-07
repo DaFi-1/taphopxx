@@ -3,29 +3,53 @@
 Pula para qualquer aba do Neovim com uma tecla: mostra uma linha com letras
 (`a`–`z`) em ASCII art e o nome de cada aba, você digita a letra e vai.
 
-## Instalação (LazyVim)
+Atalho: **`<Space>+`** (espaço e mais).
 
-No seu `~/.config/nvim/lua/plugins/*.lua`:
+## Instalação
+
+### 1. lazy.nvim (instalador)
+
+Se você ainda não tem o gerenciador de pacotes, cole no seu
+`~/.config/nvim/init.lua`:
+
+```lua
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+```
+
+### 2. Plugin
+
+No LazyVim, crie `~/.config/nvim/lua/plugins/taphopxx.lua`:
 
 ```lua
 return {
-  "USUARIO/taphopxx", -- troque pelo seu repositório
-  keys = {
-    { "<Space>+", "<cmd>lua require('taphopxx').activate()<cr>", desc = "WinHop: pular para aba" },
-  },
+  "DaFi-1/taphopxx",
 }
 ```
 
-O plugin já registra o atalho `<Space>+` sozinho ao carregar; a chave acima é
-opcional (serve só para adiar o carregamento até o primeiro uso).
+Ou, no `require("lazy").setup({...})` do `init.lua`:
+
+```lua
+{ "DaFi-1/taphopxx" },
+```
+
+O atalho `<Space>+` é registrado sozinho quando o plugin carrega (no início do
+Neovim).
 
 ## Uso
 
-| Tecla   | Ação                                      |
-| ------- | ----------------------------------------- |
-| `<Space>+` | Abre a linha de letras e espera a tecla |
-| letra (`a`, `b`, …) | Vai para a aba correspondente |
-| `<Esc>` / `<C-c>` | Cancela                              |
+| Tecla              | Ação                                |
+| ------------------ | ----------------------------------- |
+| `<Space>+`         | Abre a linha de letras e espera     |
+| letra (`a`, `b`, …) | Vai para a aba correspondente      |
+| `<Esc>` / `<C-c>`  | Cancela                             |
 
 Só existem rótulos para as 26 primeiras abas.
 
