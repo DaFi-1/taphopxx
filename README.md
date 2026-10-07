@@ -1,15 +1,15 @@
 # taphopxx
 
-Pula para qualquer aba do Neovim com uma tecla: mostra uma linha com letras
-(`a`–`z`) em ASCII art e o nome de cada aba, você digita a letra e vai.
+Jump to any Neovim tab with one key: it shows a row of ASCII-art letters
+(`a`–`z`) with each tab name; type the letter and go.
 
-Atalho: **`<Space>e`** (espaço e "e").
+Shortcut: **`<Space>e`** (space and "e").
 
-## Instalação
+## Installation
 
-### 1. lazy.nvim (instalador)
+### 1. lazy.nvim (installer)
 
-Se você ainda não tem o gerenciador de pacotes, cole no seu
+If you don't have the package manager yet, paste this into your
 `~/.config/nvim/init.lua`:
 
 ```lua
@@ -26,7 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 
 ### 2. Plugin
 
-No LazyVim, crie `~/.config/nvim/lua/plugins/taphopxx.lua`:
+In LazyVim, create `~/.config/nvim/lua/plugins/taphopxx.lua`:
 
 ```lua
 return {
@@ -34,39 +34,39 @@ return {
 }
 ```
 
-Ou, no `require("lazy").setup({...})` do `init.lua`:
+Or inside the `require("lazy").setup({...})` call in your `init.lua`:
 
 ```lua
 { "DaFi-1/taphopxx" },
 ```
 
-O atalho `<Space>e` é registrado sozinho quando o plugin carrega (no início do
-Neovim).
+The `<Space>e` shortcut is registered automatically when the plugin loads
+(at Neovim startup).
 
-## Uso
+## Usage
 
-| Tecla              | Ação                                |
-| ------------------ | ----------------------------------- |
-| `<Space>e`         | Abre a linha de letras e espera     |
-| letra (`a`, `b`, …) | Vai para a aba correspondente      |
-| `<Esc>` / `<C-c>`  | Cancela                             |
+| Key                  | Action                             |
+| -------------------- | ---------------------------------- |
+| `<Space>e`           | Show the letter row and wait       |
+| letter (`a`, `b`, …) | Go to the matching tab             |
+| `<Esc>` / `<C-c>`    | Cancel                             |
 
-Só existem rótulos para as 26 primeiras abas.
+Labels only cover the first 26 tabs.
 
-## Nome da aba
+## Tab name
 
-A ordem é:
+Resolved in this order:
 
-1. `vim.t.winhop_name`, se definido;
-2. nome do arquivo ativo da aba;
+1. `vim.t.winhop_name`, if set;
+2. name of the active file in the tab;
 3. `[sem nome]`.
 
 ```lua
-vim.t.winhop_name = "meu projeto"
+vim.t.winhop_name = "my project"
 ```
 
-## Aparência
+## Appearance
 
-Os grupos `WinHopLabel`, `WinHopBorder` e `WinHopName` são definidos com
-`default = true`, então basta defini-los no seu core colorscheme para mudar as
-cores.
+The `WinHopLabel`, `WinHopBorder` and `WinHopName` highlight groups are
+defined with `default = true`, so just define them in your core colorscheme
+to change the colors.
